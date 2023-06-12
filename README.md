@@ -19,5 +19,7 @@ Instal dependencies
 
 1. pip install poetry
 2. poetry install
+3. uvicorn main:app --reload
 
-uvicorn main:app --reload
+
+go to localhost:8000/docs to get the API documentation
