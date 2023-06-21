@@ -7,7 +7,7 @@ class AlphaOptions(str, Enum):
     Facebook = ("META",)
     Apple = ("AAPL",)
     Google = ("GOOGL",)
-    Amazon = "AMZN"
+    Amazon = ("AMZN",)
 
 
 class AlphaOptionsSchema(BaseModel):

@@ -8,7 +8,7 @@ env = get_environment_variables()
 
 
 class AlphaBase(ABC):
-    def __init__(self, params) -> None:
+    def __init__(self, params):
         self.ulr = env.ALPHA_URL
         self.apy_key = env.API_KEY
         self.params = params
@@ -63,12 +63,16 @@ class AmazonAlpha(AlphaBase):
 
 
 def alpa_search(symbol: str):
-    symbols = {
-        "AMZN": AmazonAlpha(),
-        "GOOGL": GoogleAlpha(),
-        "MSFT": MicrosoftAlpha(),
-        "AAPL": AppleAlpha(),
-        "META": MetaAlpha(),
-    }
-
-    return symbols.get(symbol, None)
+    match symbol:
+        case "AMZN":
+            return AmazonAlpha()
+        case "GOOGL":
+            return GoogleAlpha()
+        case "MSFT":
+            return MicrosoftAlpha()
+        case "AAPL":
+            return AppleAlpha()
+        case "META":
+            return MetaAlpha()
+        case _:
+            return MetaAlpha()
